@@ -1,0 +1,46 @@
+{
+    "columns":[
+                {
+                    "ToDo": [
+                        {
+                            "id": 1,
+                            "done": false,
+                            "createdDate": "",
+                            "title": "Vattna blommorna"
+                        },
+                        {
+                            "id": 2,
+                            "done": false,
+                            "createdDate": "",
+                            "title": "Slänga soporna"
+                        }
+                    ]
+                },
+                {
+                    "Doing": [
+                        {
+                            "id": 1,
+                            "done": false,
+                            "createdDate": "",
+                            "title": "Kolla på TV"
+                        },
+                        {
+                            "id": 2,
+                            "done": false,
+                            "createdDate": "",
+                            "title": "Slänga soporna"
+                        }
+                    ]
+                },
+                {
+                    "Done": [
+                        {
+                            "id": 1,
+                            "done": true,
+                            "createdDate": "",
+                            "title": "Bygga en ny app"
+                        }
+                    ]
+                }
+        ]
+}
