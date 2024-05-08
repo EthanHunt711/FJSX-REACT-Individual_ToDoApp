@@ -2,24 +2,19 @@ import styles from './cardsList.module.css'
 import Task from './TaskCard'
 
 export const CardsList = ( 
-    { column, addedDate }
+    { columnCards, addedDate }
     ) => {
-
-      console.log(column)
   return (
-    
-    <article className={styles.column}>
-      <div className={styles.columnTitle}>
-        <p className={styles.columnTitleText}>{column.key}</p>
-      </div>
-      <ul className={styles.list}>
-        
-          <Task 
-              addedDate = { addedDate }
-              
-          /> 
-      </ul>
-    </article>
+    <ul className={styles.cardsList}>
+        {columnCards.map((columnCard) => (
+            <Task
+                key={columnCard.id}
+                columnCard={columnCard}
+                addedDate={addedDate}
+            />
+            
+        ))}
+    </ul>
   )
 }
 

@@ -1,14 +1,14 @@
 import styles from './taskCard.module.css'
 
-const Task = ( { addedDate, setAddedDate }) => {
+const Task = ( { columnCard, addedDate }) => {
   return (
-    <section className={styles.task}>
-        <p className={styles.title}>Task</p> 
-        <span className={styles.date}>{addedDate}</span>
-
-    
-    </section>
-  )
+    <form className={styles.cardContainer}>
+      <h4 className={styles.title}>{columnCard.title}</h4>
+      <div className={styles.date}>
+        <p>{columnCard.createdDate= addedDate}</p>
+      </div>
+    </form>
+  ) 
 }
 
 export default Task

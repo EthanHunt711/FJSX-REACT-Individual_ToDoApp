@@ -1,6 +1,6 @@
 import styles from './content.module.css'
 import CardsList from './Tasks/CardsList'
-import ColumnsList from './ColumnsList'
+import ColumnsList from './Columns/ColumnsList'
 
 const Content = (
   { columns, addedDate }

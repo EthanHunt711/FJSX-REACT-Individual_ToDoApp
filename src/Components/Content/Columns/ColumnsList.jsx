@@ -1,15 +1,16 @@
-import CardsList from './Tasks/CardsList'
+import Column from './Column'
 import styles from './columnsList.module.css'
 
 const ColumnsList = ({ columns, addedDate}) => {
   return (
     <ul className={styles.columnsList}>
         {columns.map((column) => (
-            <CardsList
-                key={column.key}
+            <Column
+                key={column.id}
                 column={column}
                 addedDate={addedDate}
             />
+            
         ))}
     </ul>
   )

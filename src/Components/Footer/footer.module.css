@@ -1,6 +1,6 @@
 .footer{
-    margin: 5px auto 0;
-    width: 100%;
+    margin: 5px 0 0;
+    width: 100vw;
     height: 45px;
     background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
     display: flex;

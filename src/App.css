@@ -1,12 +1,15 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  padding: 2px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 main {
-  background: linear-gradient(0.35turn, #c1c8cb, #484c45, #ebe9e5);;
+  background: linear-gradient(0.35turn, #78b3cc, #d3ddcb, #b5a27b);
   width: 100%;
   height: 90vh;
   color: #000;
