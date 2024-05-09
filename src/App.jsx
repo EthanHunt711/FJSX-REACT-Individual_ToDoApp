@@ -5,15 +5,21 @@ import Header from './Components/Header/Header'
 import Content from './Components/Content/Content'
 import Footer from './Components/Footer/Footer'
 import customData from '../data/db.json'
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css"
+import { compareAsc, format, setDefaultOptions } from "date-fns"
+import { sv } from "date-fns/locale"
+setDefaultOptions({ locale: sv})
 
 
-const date = `${new Date().getFullYear()}-${(new Date().getMonth()+1 < 10 ? `0${new Date().getMonth()+1}` : `${new Date().getMonth()+1}`)}-${(new Date().getDate() < 10 ? `0${new Date().getDate()}` : `${new Date().getDate()}`)}`
+// const date = `${new Date().getFullYear()}-${(new Date().getMonth()+1 < 10 ? `0${new Date().getMonth()+1}` : `${new Date().getMonth()+1}`)}-${(new Date().getDate() < 10 ? `0${new Date().getDate()}` : `${new Date().getDate()}`)}`
 
 function App() {
 
   const API_URL = 'http://localhost:3000/columns'
   
-  const [addedDate, setAddedDate] = useState(date)
+  const [addedDate, setAddedDate] = useState(format(new Date(), "dd/MM/yyy"))
+  const [dueDate, setDueDate] = useState()
 
   const [columns, setColumns] = useState([])
 
