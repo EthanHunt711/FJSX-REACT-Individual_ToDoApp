@@ -15,7 +15,7 @@ function App() {
   
   const [addedDate, setAddedDate] = useState(date)
 
-  const [columns, setColumns] = useState(JSON.parse(localStorage.getItem('columnsList')) || [])
+  const [columns, setColumns] = useState([])
 
 
   const [isLoading, setIsLoading] = useState(true)
@@ -24,27 +24,27 @@ function App() {
     setAddedDate = date
   }
 
-  // useEffect(() => {
-  //   const fetchColumns = async () => {
-  //     try {
-  //       const response = await fetch(customData)
-  //       if(!response.ok) throw Error('Did not recieve expected data')
-  //       const columnItems = await response.json()
-  //       console.log(columnItems)
-  //       console.log(columnItems.length)
-  //       setColumns(columnItems)
+  useEffect(() => {
+    const fetchColumns = () => {
+      try {
         
-  //     } catch (err) {
-  //       console.log(err.message)
-  //     } finally {
-  //       setIsLoading(false)
-  //     }
-  //   } 
-  //   setTimeout(() => {
-  //     (async() => await fetchColumns())()
-  //   }, 2000)
-  // }, [])
+        setColumns(JSON.parse(localStorage.getItem('columnsList')))
+        
+      } catch (err) {
+        console.log(err.message)
+      } finally {
+        setIsLoading(false)
+      }
+    } 
+    setTimeout(() => {
+      (() => fetchColumns())()
+    }, 2000)
+  }, [])
+
+
   localStorage.setItem('columnsList', JSON.stringify(customData))
+  
+  
   return (
     <>
       <Header title="The Board App"/>
