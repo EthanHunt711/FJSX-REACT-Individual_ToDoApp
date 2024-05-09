@@ -7,13 +7,15 @@
                 "id": 1,
                 "done": false,
                 "createdDate": "",
-                "title": "Vattna blommorna"
+                "title": "Vattna blommorna",
+                "description": ""
             },
             {
                 "id": 2,
                 "done": false,
                 "createdDate": "",
-                "title": "Slänga soporna"
+                "title": "Slänga soporna",
+                "description": ""
             }
         ]
     },
@@ -25,13 +27,15 @@
                 "id": 1,
                 "done": false,
                 "createdDate": "",
-                "title": "Kolla på TV"
+                "title": "Kolla på TV",
+                "description": ""
             },
             {
                 "id": 2,
                 "done": false,
                 "createdDate": "",
-                "title": "Slänga soporna"
+                "title": "Slänga soporna",
+                "description": ""
             }
         ]
     },
@@ -43,7 +47,8 @@
                 "id": 1,
                 "done": true,
                 "createdDate": "",
-                "title": "Bygga en ny app"
+                "title": "Bygga en ny app",
+                "description": ""
             }
         ]
     }

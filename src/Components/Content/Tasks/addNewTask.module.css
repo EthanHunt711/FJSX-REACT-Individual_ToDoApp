@@ -1,0 +1,26 @@
+.addBtn {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    width: 70%;
+    align-items: center;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.addBtn:hover{
+    background-color: #fff;
+    transition: .4s all ease;
+}
+
+.addBtnText{
+    font-size: 1rem;
+}
+
+.addBtnIcon{
+    font-size: 2rem;
+    width: 60px;
+}
+

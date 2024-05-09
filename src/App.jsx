@@ -20,10 +20,12 @@ function App() {
 
   const [isLoading, setIsLoading] = useState(true)
 
-  const handleAddedDate = () => {
-    setAddedDate = date
+  const handleAddCard = () => {
+    console.log('test')
   }
-
+  
+  localStorage.setItem('columnsList', JSON.stringify(customData))
+  
   useEffect(() => {
     const fetchColumns = () => {
       try {
@@ -42,9 +44,6 @@ function App() {
   }, [])
 
 
-  localStorage.setItem('columnsList', JSON.stringify(customData))
-  
-  
   return (
     <>
       <Header title="The Board App"/>
@@ -53,6 +52,7 @@ function App() {
           columns={columns}
           addedDate={addedDate}
           setAddedDate={setAddedDate}
+          handleAddCard={handleAddCard}
         />
       </main>
       <Footer />

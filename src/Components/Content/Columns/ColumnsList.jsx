@@ -1,7 +1,7 @@
 import Column from './Column'
 import styles from './columnsList.module.css'
 
-const ColumnsList = ({ columns, addedDate}) => {
+const ColumnsList = ({ columns, addedDate, handleAddCard}) => {
   return (
     <ul className={styles.columnsList}>
         {columns.map((column) => (
@@ -9,6 +9,7 @@ const ColumnsList = ({ columns, addedDate}) => {
                 key={column.id}
                 column={column}
                 addedDate={addedDate}
+                handleAddCard={handleAddCard}
             />
             
         ))}

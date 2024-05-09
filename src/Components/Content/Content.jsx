@@ -3,7 +3,7 @@ import CardsList from './Tasks/CardsList'
 import ColumnsList from './Columns/ColumnsList'
 
 const Content = (
-  { columns, addedDate }
+  { columns, addedDate, handleAddCard }
   ) => {
   return (
     <>
@@ -11,11 +11,8 @@ const Content = (
           <ColumnsList 
             columns={columns}
             addedDate={addedDate}
+            handleAddCard={handleAddCard}
           />    
-          // <CardsList 
-          //     columns={columns}
-          //     addedDate={addedDate}
-          // />
       ) : (
           <p style={{marginTop: '2rem'}}>Finns inga planeringar</p>
       )}
