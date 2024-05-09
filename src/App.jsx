@@ -19,7 +19,8 @@ function App() {
   const API_URL = 'http://localhost:3000/columns'
   
   const [addedDate, setAddedDate] = useState(format(new Date(), "dd/MM/yyy"))
-  const [dueDate, setDueDate] = useState()
+  const [dueDate, setDueDate] = useState('')
+  const [showModal, setShowModal] = useState(false);
 
   const [columns, setColumns] = useState([])
 
@@ -28,6 +29,14 @@ function App() {
 
   const handleAddCard = () => {
     console.log('test')
+  }
+
+  const handleCloseModal = () => {
+    setShowModal(false)
+  };
+
+  const handleShowModal = () => {
+    setShowModal(true)
   }
   
   localStorage.setItem('columnsList', JSON.stringify(customData))
@@ -53,13 +62,22 @@ function App() {
   return (
     <>
       <Header title="The Board App"/>
+      
       <main>
-        <Content 
-          columns={columns}
-          addedDate={addedDate}
-          setAddedDate={setAddedDate}
-          handleAddCard={handleAddCard}
-        />
+        {isLoading && <p style={{padding:'2rem'}}>Hämtar fram uppgifter ... </p>}
+        {!isLoading && 
+          <Content 
+            columns={columns}
+            addedDate={addedDate}
+            setAddedDate={setAddedDate}
+            handleAddCard={handleAddCard}
+            hadleCloseModal={handleCloseModal}
+            showModal={showModal}
+            setShowModal={setShowModal}
+            handleShowModal={handleShowModal}
+          />
+        }
+        
       </main>
       <Footer />
     </>

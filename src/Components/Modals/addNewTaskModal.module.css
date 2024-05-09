@@ -1,0 +1,24 @@
+.modalContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 8;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.addNewTaskModal {
+    z-index: 9;
+    width: 350px;
+    height: 400px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    font-size: 2rem;
+    border-radius: 5px;
+    padding: 10px;
+  }

@@ -2,7 +2,7 @@ import styles from './column.module.css'
 import CardsList from '../Tasks/CardsList'
 import AddNewTask from '../Tasks/AddNewTask'
 
-const Column = ({ column, addedDate, handleAddCard }) => {
+const Column = ({ column, addedDate, handleAddCard, handleShowModal }) => {
   return (
     <section className={styles.column}>
         <div className={styles.title}>
@@ -18,6 +18,7 @@ const Column = ({ column, addedDate, handleAddCard }) => {
               <div className={styles.addBtn}>
                 <AddNewTask
                   handleAddCard={handleAddCard}
+                  handleShowModal={handleShowModal}
                 />
               </div>
               

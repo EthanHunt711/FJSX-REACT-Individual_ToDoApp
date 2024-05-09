@@ -1,12 +1,18 @@
+import { useState } from 'react'
 import styles from './addNewTaskModal.module.css'
 
 
 
-const AddNewTaskModal = () => {
+const AddNewTaskModal = ({ handleCloseModal, setShowModal }) => {
+
+    const [newTaskTitle, setNewTaskTitle] = useState('')
+
+    const canSave = Boolean(newTaskTitle)
+
   return (
-    <div className={styles.addNewTaskModalContainer}>
+    <div className={styles.modalContainer}>
         <div className={styles.addNewTaskModal}>
-            <section className={styles.addNewTaskModalMain}>
+            <form className={styles.addNewTaskModalMain}>
                 <label htmlFor="newTaskTitle">Titel: </label>
                 <input 
                     type="text" 
@@ -19,8 +25,19 @@ const AddNewTaskModal = () => {
                     id='newTaskDescription'
                     name='newTaskDescription'
                 />
+                <div className={styles.addNewTaskButtonContainer}>
+                    <button
+                        //onClick={handleSaveUser}
+                        className={styles.addnewTaskModalButton}
+                        disabled={!canSave}
+                    >Spara</button>
+                    <button
+                        onClick={handleCloseModal}
+                        className={styles.addnewTaskModalButton}
+                    >Avbryt</button>
+                </div>
 
-            </section>
+            </form>
 
         </div>
     </div>
