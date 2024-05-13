@@ -12,26 +12,25 @@ import { sv } from "date-fns/locale"
 setDefaultOptions({ locale: sv})
 
 
-// const date = `${new Date().getFullYear()}-${(new Date().getMonth()+1 < 10 ? `0${new Date().getMonth()+1}` : `${new Date().getMonth()+1}`)}-${(new Date().getDate() < 10 ? `0${new Date().getDate()}` : `${new Date().getDate()}`)}`
-
 function App() {
-
-  const API_URL = 'http://localhost:3000/columns'
   
-  const [addedDate, setAddedDate] = useState(format(new Date(), "dd/MM/yyy"))
+  const [columns, setColumns] = useState([])
+  const [newTask, setNewTask] = useState('')
+  const [addedDate, setAddedDate] = useState(format(new Date(), "yyyy-MM-dd"))
   const [dueDate, setDueDate] = useState('')
   const [showModal, setShowModal] = useState(false);
 
-  const [columns, setColumns] = useState([])
-
-
   const [isLoading, setIsLoading] = useState(true)
 
-  const handleAddCard = () => {
-    console.log('test')
+  const handleSubmitNewTak = () => {
+    const id = columns[0].length ? columns[0][columns[0] - 1].id + 1 : 0
+    const newTask = { id, done: false, createdDate, dueDate, title, description }
+    const taskList = { ...columns[0], newTask}
+    setColumns(taskList)
   }
 
-  const handleCloseModal = () => {
+  const handleCloseModal = (e) => {
+    e.preventDefault()
     setShowModal(false)
   };
 
@@ -39,9 +38,12 @@ function App() {
     setShowModal(true)
   }
   
-  localStorage.setItem('columnsList', JSON.stringify(customData))
+  // localStorage.setItem('columnsList', JSON.stringify(customData))
   
   useEffect(() => {
+
+    localStorage.setItem('columnsList', JSON.stringify(customData))
+
     const fetchColumns = () => {
       try {
         
@@ -70,11 +72,12 @@ function App() {
             columns={columns}
             addedDate={addedDate}
             setAddedDate={setAddedDate}
-            handleAddCard={handleAddCard}
+            handleSubmitNewTak={handleSubmitNewTak}
             hadleCloseModal={handleCloseModal}
             showModal={showModal}
             setShowModal={setShowModal}
             handleShowModal={handleShowModal}
+            DatePicker={DatePicker}
           />
         }
         

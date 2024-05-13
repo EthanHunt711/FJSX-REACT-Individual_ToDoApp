@@ -8,13 +8,17 @@ const Content = (
   
 
 
-  { columns, addedDate, handleAddCard, handleCloseModal, showModal, setShowModal, handleShowModal }
+  { columns, addedDate, setAddedDate, handleAddCard, handleCloseModal, showModal, setShowModal, handleShowModal, DatePicker, handleSubmitNewTak }
   ) => {
   return (
     <>
     {showModal && <AddNewTaskModal 
             handleCloseModal={handleCloseModal}
             setShowModal={setShowModal}
+            DatePicker={DatePicker}
+            addedDate={addedDate}
+            setAddedDate={setAddedDate}
+            handleSubmitNewTak={handleSubmitNewTak}
 
     />}
     {columns.length ? (    
@@ -23,6 +27,7 @@ const Content = (
             addedDate={addedDate}
             handleAddCard={handleAddCard}
             handleShowModal={handleShowModal}
+            
           />    
       ) : (
           <p style={{marginTop: '2rem'}}>Finns inga planeringar</p>

@@ -22,3 +22,75 @@
     border-radius: 5px;
     padding: 10px;
   }
+
+  .addNewTaskModal p{
+    font-size: 20px;
+ 
+  }
+
+  .addNewTaskModalMain{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .newTaskTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .newTaskTitle label{
+    font-size: 1.3rem;
+    width: 60px;
+    margin-right: 10px;
+  }
+
+  .newTaskTitle input{
+    height: 30px;
+    width: 100%;
+    padding: 5px;
+  }
+
+  .newTaskDesciption{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .newTaskDesciption p {
+    font-size: 1.3rem;
+    align-self: flex-start;
+  }
+
+  .newTaskDesciption textarea{
+    height: 100px;
+    width: 100%;
+    padding: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .addNewTaskButtonContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+  }
+
+  .addNewTaskButtonContainer button{
+    width: 70px;
+    height: 30px;
+  }
+
+.chooseDate{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}

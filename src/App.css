@@ -21,3 +21,22 @@ main {
   gap: 20px;
   padding-top: 10px;
 }
+
+.react-datepicker-wrapper{
+  width: 100px;
+}
+
+.react-datepicker-wrapper svg{
+  width: 20px;
+  height: 20px;
+}
+
+.react-datepicker__input-container{
+  position: absolute;
+  display: flex;
+  width: 100px;
+  align-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
