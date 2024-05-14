@@ -12,16 +12,16 @@ const Content = (
   ) => {
   return (
     <>
-    {showModal && <AddNewTaskModal 
-            handleCloseModal={handleCloseModal}
-            setShowModal={setShowModal}
-            DatePicker={DatePicker}
-            addedDate={addedDate}
-            setAddedDate={setAddedDate}
-            handleSubmitNewTak={handleSubmitNewTak}
+        {showModal && <AddNewTaskModal 
+              handleCloseModal={handleCloseModal}
+              setShowModal={setShowModal}
+              DatePicker={DatePicker}
+              addedDate={addedDate}
+              setAddedDate={setAddedDate}
+              handleSubmitNewTak={handleSubmitNewTak}
 
-    />}
-    {columns.length ? (    
+        />}
+        {columns.length ? (    
           <ColumnsList 
             columns={columns}
             addedDate={addedDate}
