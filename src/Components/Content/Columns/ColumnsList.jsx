@@ -1,18 +1,19 @@
+import { useContext } from 'react'
 import Column from './Column'
 import styles from './columnsList.module.css'
+import DataContext from '../../../Context/DataContext'
 
-const ColumnsList = ({ columns, addedDate, handleAddCard, handleShowModal }) => {
+const ColumnsList = () => {
+
+  const { columns } = useContext(DataContext)
+
   return (
     <ul className={styles.columnsList}>
         {columns.map((column) => (
             <Column
-                key={column.id}
+                key={columns.indexOf(column)}
                 column={column}
-                addedDate={addedDate}
-                handleAddCard={handleAddCard}
-                handleShowModal={handleShowModal}
             />
-            
         ))}
     </ul>
   )

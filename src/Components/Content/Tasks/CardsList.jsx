@@ -3,7 +3,7 @@ import Task from './TaskCard'
 
 
 export const CardsList = ( 
-    { columnCards, addedDate }
+    { columnCards }
     ) => {
   return (
     <ul className={styles.cardsList}>
@@ -11,7 +11,7 @@ export const CardsList = (
             <Task
                 key={columnCard.id}
                 columnCard={columnCard}
-                addedDate={addedDate}
+                createdDate={columnCard.createdDate}
             />
             
         ))}
