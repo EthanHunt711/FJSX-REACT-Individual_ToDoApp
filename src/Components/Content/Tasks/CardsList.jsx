@@ -1,19 +1,20 @@
+import { useContext } from 'react'
+import DataContext from '../../../Context/DataContext'
 import styles from './cardsList.module.css'
 import Task from './TaskCard'
 
 
-export const CardsList = ( 
-    { columnCards }
-    ) => {
+export const CardsList = () => {
+
+  const { tasks } = useContext(DataContext)
+
   return (
     <ul className={styles.cardsList}>
-        {columnCards.map((columnCard) => (
+        {tasks.map((task) => (
             <Task
-                key={columnCard.id}
-                columnCard={columnCard}
-                createdDate={columnCard.createdDate}
+                key={task.id}
+                task={task}
             />
-            
         ))}
     </ul>
     

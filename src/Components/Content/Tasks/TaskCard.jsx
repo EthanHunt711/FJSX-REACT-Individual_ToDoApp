@@ -1,11 +1,15 @@
+import { useContext } from 'react'
+import DataContext from '../../../Context/DataContext'
 import styles from './taskCard.module.css'
 
-const Task = ( { columnCard, createdDate}) => {
+const Task = ( { task }) => {
+
+  
   return (
     <form className={styles.cardContainer}>
-      <h4 className={styles.title}>{columnCard.title}</h4>
+      <h4 className={styles.title}>{task.title}</h4>
       <div className={styles.date}>
-        <p>{createdDate}</p>
+        <p>{task.createdDate}</p>
       </div>
     </form>
   ) 

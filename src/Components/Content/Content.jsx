@@ -17,7 +17,7 @@ const Content = () => {
         {columns.length ? (    
           <ColumnsList 
             columns={columns}
-          />    
+          />   
       ) : (
           <p style={{marginTop: '2rem'}}>Finns inga planeringar</p>
       )}

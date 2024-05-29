@@ -14,6 +14,8 @@ export const DataProvider = ({ children }) => {
     const [columns, setColumns] = useState(columnsList || [])
     // retrieve all tasks if any or empty array
     const [tasks, setTasks] = useState(localStorage.getItem("allTasks") || [])
+    // show modal
+    const [modal, setModal] = useState(false)
 
     //delete a task by id
     const handleDeleteTask = (id) => {
@@ -21,12 +23,16 @@ export const DataProvider = ({ children }) => {
         setTasks(newTasksList)
       }
     
+    const handleToggleModal = () => {
+        setModal(!modal)
+    }
+
     useEffect(() => {
         localStorage.setItem("allTasks", JSON.stringify(tasks))
         }, [tasks])
     
     return (
-        <DataContext.Provider value={{ tasks, setTasks, columns, handleDeleteTask }}>
+        <DataContext.Provider value={{ tasks, setTasks, columns, handleDeleteTask, handleToggleModal, modal }}>
             {children}
         </DataContext.Provider>
     )
