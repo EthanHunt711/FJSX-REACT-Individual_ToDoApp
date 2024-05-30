@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import DataContext from '../../../Context/DataContext'
 import styles from './column.module.css'
 import CardsList from '../Tasks/CardsList'
@@ -7,7 +7,8 @@ import AddNewTaskModal from '../../Modals/AddNewTaskModal'
 
 const Column = ( { column }) => {
 
-  const { modal } = useContext(DataContext)
+  const { modal, tasks } = useContext(DataContext)
+
   
   return (
     <section className={styles.column}>
@@ -16,15 +17,14 @@ const Column = ( { column }) => {
         </div>
         <div className={styles.cardsContainer}>
             <CardsList 
-              // key={column}
+              key={column}
+              columnId={column}
             />
             {column === "To Do" &&
               <div className={styles.addBtn}>
                 <AddNewTask
-                  // handleAddCard={handleAddCard}
-                  // handleShowModal={handleShowModal}
                 />
-                {!modal && <AddNewTaskModal />}
+                {modal && <AddNewTaskModal />}
               </div>
               
             }

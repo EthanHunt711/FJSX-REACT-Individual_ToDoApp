@@ -5,7 +5,9 @@ import DataContext from '../../../Context/DataContext'
 
 const ColumnsList = () => {
 
-  const { columns } = useContext(DataContext)
+  const { columns, tasks } = useContext(DataContext)
+
+  
 
   return (
     <ul className={styles.columnsList}>

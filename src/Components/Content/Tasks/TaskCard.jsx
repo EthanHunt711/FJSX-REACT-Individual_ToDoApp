@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import DataContext from '../../../Context/DataContext'
 import styles from './taskCard.module.css'
 
-const Task = ( { task }) => {
+const TaskCard = ( { task }) => {
 
   
   return (
@@ -15,4 +15,4 @@ const Task = ( { task }) => {
   ) 
 }
 
-export default Task
+export default TaskCard

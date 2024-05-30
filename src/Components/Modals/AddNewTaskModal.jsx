@@ -29,6 +29,7 @@ const AddNewTaskModal = () => {
     };
 
     setTasks((prev) => [...prev, task]);
+    console.log(tasks)
     handleToggleModal();
   };
 
@@ -57,7 +58,6 @@ const AddNewTaskModal = () => {
               type="text"
               id="newTaskDescription"
               name="newTaskDescription"
-              ref={inputRef}
               value={newTaskDescription}
               onChange={(e) => setNewTaskDescription(e.target.value)}
             />

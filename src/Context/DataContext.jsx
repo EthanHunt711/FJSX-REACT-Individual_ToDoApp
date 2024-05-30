@@ -13,7 +13,21 @@ export const DataProvider = ({ children }) => {
     // useState for setting the initial columns
     const [columns, setColumns] = useState(columnsList || [])
     // retrieve all tasks if any or empty array
-    const [tasks, setTasks] = useState(localStorage.getItem("allTasks") || [])
+    const initialState = columns.map((column) => {
+        const initialList = []
+        const columnCategory = {
+            id: columns.indexOf(column),
+            name: column,
+            tasks: []
+            }
+        initialList.push(columnCategory)
+        }  
+         
+    )
+    const [tasks, setTasks] = useState(() => {
+        const savedTasks = localStorage.getItem("allTasks");
+        return savedTasks ? JSON.parse(savedTasks) : [];
+    });
     // show modal
     const [modal, setModal] = useState(false)
 
@@ -28,6 +42,7 @@ export const DataProvider = ({ children }) => {
     }
 
     useEffect(() => {
+        console.log(initialState)
         localStorage.setItem("allTasks", JSON.stringify(tasks))
         }, [tasks])
     
