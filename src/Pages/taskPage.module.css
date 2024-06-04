@@ -1,0 +1,25 @@
+.taskContainer {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.editButtons{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 30px;
+    padding-top: 30px;
+    max-width: 150px;
+}
+.editButtons button{
+    width: 100px;
+    height: 50px;
+}
+.editButtons a{
+    max-width: 100px;
+}
+.homeButton{
+    width: 30px;
+    height: 30px;
+}

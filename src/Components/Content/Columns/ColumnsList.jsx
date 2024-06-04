@@ -1,24 +1,18 @@
-import { useContext } from 'react'
-import Column from './Column'
-import styles from './columnsList.module.css'
-import DataContext from '../../../Context/DataContext'
+import { useContext } from "react";
+import Column from "./Column";
+import styles from "./columnsList.module.css";
+import DataContext from "../../../Context/DataContext";
 
 const ColumnsList = () => {
-
-  const { columns, tasks } = useContext(DataContext)
-
-  
+  const { columns, tasks, setActiveCard, handleDrop } = useContext(DataContext);
 
   return (
     <ul className={styles.columnsList}>
-        {columns.map((column) => (
-            <Column
-                key={columns.indexOf(column)}
-                column={column}
-            />
-        ))}
+      {columns.map((column, index) => (
+        <Column key={index} column={column} />
+      ))}
     </ul>
-  )
-}
+  );
+};
 
-export default ColumnsList
+export default ColumnsList;
