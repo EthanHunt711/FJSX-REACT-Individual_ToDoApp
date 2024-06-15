@@ -1,0 +1,21 @@
+.tagsList{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .tagBtn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .tagBtn:hover{
+    filter: brightness(85%);
+  }

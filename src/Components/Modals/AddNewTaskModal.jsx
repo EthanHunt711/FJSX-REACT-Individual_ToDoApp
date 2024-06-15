@@ -1,16 +1,17 @@
-import { useState, useContext, useRef } from 'react';
-import DataContext from '../../Context/DataContext';
-import styles from './addNewTaskModal.module.css';
-import { format } from 'date-fns';
+import { useState, useContext, useRef } from "react";
+import DataContext from "../../Context/DataContext";
+import styles from "./addNewTaskModal.module.css";
+import { format } from "date-fns";
+import Tags from "../Content/Tasks/Tags";
 
 const AddNewTaskModal = () => {
   const { handleToggleModal, tasks, setTasks } = useContext(DataContext);
 
-  const [newTaskTitle, setNewTaskTitle] = useState('');
-  const [addedDate] = useState(format(new Date(), "yyyy-MM-dd"));
-  const [dueDate, setDueDate] = useState('');
-  const [newTaskDescription, setNewTaskDescription] = useState('');
-  const [newTaskCategory, setNewTaskCategory] = useState('To Do');
+  const [newTaskTitle, setNewTaskTitle] = useState("");
+  const [addedDate, setAddedDate] = useState(format(new Date(), "yyyy-MM-dd"));
+  const [dueDate, setDueDate] = useState("");
+  const [newTaskDescription, setNewTaskDescription] = useState("");
+  const [newTaskCategory, setNewTaskCategory] = useState("To Do");
 
   const canSave = Boolean(newTaskTitle);
   const inputRef = useRef(null);
@@ -29,15 +30,18 @@ const AddNewTaskModal = () => {
     };
 
     setTasks((prev) => [...prev, task]);
-    console.log(tasks)
+    console.log(tasks);
     handleToggleModal();
   };
 
   return (
     <div className={styles.modalContainer}>
-      <div className={styles.addNewTaskModal}>
+      <dialog className={styles.addNewTaskModal}>
         <p>Ny Uppgift</p>
-        <form className={styles.addNewTaskModalMain} onSubmit={handleSubmitNewTask}>
+        <form
+          className={styles.addNewTaskModalMain}
+          onSubmit={handleSubmitNewTask}
+        >
           <div className={styles.newTaskTitle}>
             <label htmlFor="newTaskTitle">Titel: </label>
             <input
@@ -54,6 +58,7 @@ const AddNewTaskModal = () => {
           <div className={styles.newTaskDescription}>
             <p>Uppgift beskrivning: </p>
             <textarea
+              className={styles.newTaskDescriptionTextArea}
               placeholder="Beskrivning ..."
               type="text"
               id="newTaskDescription"
@@ -61,6 +66,9 @@ const AddNewTaskModal = () => {
               value={newTaskDescription}
               onChange={(e) => setNewTaskDescription(e.target.value)}
             />
+          </div>
+          <div className={styles.newTaskCategoryButtons}>
+            <Tags setNewTaskCategory={setNewTaskCategory} />
           </div>
           <div className={styles.addNewTaskButtonContainer}>
             <button
@@ -80,7 +88,7 @@ const AddNewTaskModal = () => {
             </button>
           </div>
         </form>
-      </div>
+      </dialog>
     </div>
   );
 };

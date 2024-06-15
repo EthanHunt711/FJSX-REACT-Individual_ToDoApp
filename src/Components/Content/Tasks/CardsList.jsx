@@ -5,7 +5,7 @@ import TaskCard from "./TaskCard";
 import DropArea from "./DropArea";
 
 const CardsList = ({ columnId, column }) => {
-  const { tasks, setActiveCard } = useContext(DataContext);
+  const { tasks } = useContext(DataContext);
 
   return (
     <ul className={styles.cardsList}>
@@ -14,8 +14,9 @@ const CardsList = ({ columnId, column }) => {
           .filter((task) => task.category === columnId)
           .map((task) => (
             <>
+              <DropArea column={columnId} position={task.id - 1} />
               <TaskCard key={task.id} task={task} column={column} />
-              <DropArea />
+              <DropArea column={columnId} position={task.id + 1} />
             </>
           ))
       ) : (

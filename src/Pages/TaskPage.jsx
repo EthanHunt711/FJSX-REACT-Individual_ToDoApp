@@ -2,10 +2,11 @@ import { useContext, useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import DataContext from "../Context/DataContext";
 import styles from "./taskPage.module.css";
-import { FcHome } from "react-icons/fc";
+import { MdDeleteForever } from "react-icons/md";
+import { IoHome } from "react-icons/io5";
 
 const TaskPage = () => {
-  const { tasks, setTasks } = useContext(DataContext);
+  const { tasks, setTasks, handleDeleteTask } = useContext(DataContext);
   const { ID } = useParams();
   const [post, setPost] = useState(tasks.find((el) => el.id == parseInt(ID)));
   const [editedTask, setEditedTask] = useState(post);
@@ -33,13 +34,28 @@ const TaskPage = () => {
     setEditedTask(post);
   };
 
-  const handleChangeStatus = () => {
+  const handleChangeStatusToDoing = () => {
     setEditedTask((prev) => ({
       ...prev,
-      done: !prev.done,
+      done: false,
+      category: "Doing",
     }));
   };
 
+  const handleChangeStatusToDone = () => {
+    setEditedTask((prev) => ({
+      ...prev,
+      done: true,
+      category: "Done",
+    }));
+  };
+  const handleChangeStatusToToDo = () => {
+    setEditedTask((prev) => ({
+      ...prev,
+      done: false,
+      category: "To Do",
+    }));
+  };
   const canSave = Boolean(post);
 
   return (
@@ -62,8 +78,109 @@ const TaskPage = () => {
           >
             {editedTask.description}
           </div>
+          <div
+            data-name="createdDate"
+            className={styles.contentContainer}
+            //contentEditable
+            //onInput={handleEditTask}
+          >
+            {editedTask.createdDate}
+          </div>
+          <div
+            data-name="status"
+            className={styles.contentContainer}
+            //contentEditable
+            //onInput={handleEditTask}
+          >
+            {editedTask.category}
+          </div>
         </div>
         <div className={styles.editButtons}>
+          <Link to={"/"}>
+            <button>
+              <IoHome className={styles.homeButton} />
+            </button>
+          </Link>
+          <button>
+            <MdDeleteForever
+              className={styles.homeButton}
+              onClick={() => handleDeleteTask(editedTask.id)}
+            />
+          </button>
+
+          {editedTask.category === "To Do" && (
+            <button
+              type="button"
+              aria-label="Ändra läge"
+              onClick={handleChangeStatusToDoing}
+            >
+              Märkera som Doing
+            </button>
+          )}
+          {editedTask.category === "To Do" && (
+            <button
+              type="button"
+              aria-label="Ändra läge"
+              onClick={handleChangeStatusToDone}
+            >
+              Märkera som Done
+            </button>
+          )}
+          {editedTask.category === "Doing" && (
+            <button
+              type="button"
+              aria-label="Ändra läge"
+              onClick={handleChangeStatusToToDo}
+            >
+              Märkera som To Do
+            </button>
+          )}
+          {editedTask.category === "Doing" && (
+            <button
+              type="button"
+              aria-label="Ändra läge"
+              onClick={handleChangeStatusToDone}
+            >
+              Märkera som Done
+            </button>
+          )}
+          {editedTask.category === "Done" && (
+            <button
+              type="button"
+              aria-label="Ändra läge"
+              onClick={handleChangeStatusToToDo}
+            >
+              Märkera som To Do
+            </button>
+          )}
+          {editedTask.category === "Done" && (
+            <button
+              type="button"
+              aria-label="Ändra läge"
+              onClick={handleChangeStatusToDoing}
+            >
+              Märkera som Doing
+            </button>
+          )}
+          {/* 
+          <button
+            type="button"
+            aria-label="Ändra läge"
+            onClick={handleChangeStatusToDoing}
+          >
+            {editedTask.category === "To Do"
+              ? "Märkera som Doing"
+              : "Märkera som Done"}
+          </button>
+          <button
+            type="button"
+            aria-label="Ändra läge"
+            onClick={handleChangeStatusToDone}
+          >
+            {editedTask.category === "Doing"
+              ? "Märkera som Done"
+              : "Märkera som To Do"}
+          </button> */}
           <button
             type="button"
             aria-label="Spara ändringar"
@@ -79,18 +196,6 @@ const TaskPage = () => {
           >
             Avbryt
           </button>
-          <button
-            type="button"
-            aria-label="Ändra läge"
-            onClick={handleChangeStatus}
-          >
-            {editedTask.done ? "Märkera som Doing" : "Märkera som Done"}
-          </button>
-          <Link to={"/"}>
-            <button>
-              <FcHome className={styles.homeButton} />
-            </button>
-          </Link>
         </div>
       </div>
     </>

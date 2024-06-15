@@ -38,20 +38,32 @@ export const DataProvider = ({ children }) => {
     setModal(!modal);
   };
 
-  const handleDrop = (status, position) => {
+  const handleDrop = (column, position) => {
     console.log(
-      `${activeCard} is going to to place into ${status} and at the position ${position}`
+      `${activeCard} is going to to place into ${column} and at the position ${position}`
     );
+    if (activeCard === null || activeCard === undefined) return;
+
+    const taskToMove = tasks[activeCard];
+    const updatedTask = tasks.filter((task, index) => index !== activeCard);
+
+    updatedTask.splice(position, 0, {
+      ...taskToMove,
+      category: column,
+    });
+
+    setTasks(updatedTask);
   };
 
   useEffect(() => {
-    console.log(initialState);
+    //console.log(initialState);
     localStorage.setItem("allTasks", JSON.stringify(tasks));
   }, [tasks]);
 
   return (
     <DataContext.Provider
       value={{
+        columnsList,
         tasks,
         setTasks,
         columns,
