@@ -4,7 +4,7 @@ import styles from "./taskCardStatus.module.css";
 const TaskCardStatus = ({ taskStatus }) => {
   return (
     <>
-      <p>{taskStatus}</p>
+      <p>status: {taskStatus}</p>
     </>
   );
 };

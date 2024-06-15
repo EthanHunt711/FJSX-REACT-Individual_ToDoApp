@@ -22,15 +22,17 @@ const TaskCard = ({ task, column }) => {
       </Link>
       <section className={styles.detailsSectionUpp}>
         <div className={styles.detailSection}>
-          <div className={styles.descriptionDate}>
-            <p>{task.description.substring(0, 20)}</p>
-            <p>Skapade: {task.createdDate}</p>
-            <TaskCardStatus taskStatus={task.category} />
+          <p>{task.description.substring(0, 50)}</p>
+          <div className={styles.descriptionDateAndDelete}>
+            <div className={styles.descriptionDate}>
+              <p>skapade: {task.createdDate}</p>
+              <TaskCardStatus taskStatus={task.category} />
+            </div>
+            <MdDeleteForever
+              className={styles.deleteButton}
+              onClick={() => handleDeleteTask(task.id)}
+            />
           </div>
-          <MdDeleteForever
-            className={styles.deleteButton}
-            onClick={() => handleDeleteTask(task.id)}
-          />
         </div>
       </section>
     </article>
