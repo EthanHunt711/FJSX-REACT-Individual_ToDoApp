@@ -51,11 +51,18 @@
 .descriptionDateAndDelete{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
+.descriptionDate {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 .descriptionDate p{
+    font-size: 12px;
  margin: 0;
 }
 
@@ -63,7 +70,7 @@
     width: 30px;
     height: 30px;
     cursor: pointer;
-    margin-left: 70px;
+    /* margin-left: 70px; */
     opacity: 0.2;
 }
 
