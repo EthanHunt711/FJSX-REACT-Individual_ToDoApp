@@ -39,20 +39,20 @@ export const DataProvider = ({ children }) => {
   };
 
   const handleDrop = (column, position) => {
-    console.log(
-      `${activeCard} is going to to place into ${column} and at the position ${position}`
-    );
     if (activeCard === null || activeCard === undefined) return;
 
-    const taskToMove = tasks[activeCard];
-    const updatedTask = tasks.filter((task, index) => index !== activeCard);
+    const taskToMove = tasks.find((task) => task.id === activeCard);
+    if (!taskToMove) return;
 
-    updatedTask.splice(position, 0, {
+    const updatedTasks = tasks.filter((task) => task.id !== activeCard);
+
+    updatedTasks.splice(position, 0, {
       ...taskToMove,
       category: column,
     });
 
-    setTasks(updatedTask);
+    setTasks(updatedTasks);
+    setActiveCard(null);
   };
 
   useEffect(() => {

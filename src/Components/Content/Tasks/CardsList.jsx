@@ -9,6 +9,7 @@ const CardsList = ({ columnId, column }) => {
 
   return (
     <ul className={styles.cardsList}>
+      <DropArea column={columnId} position={0} />
       {tasks && tasks.length > 0 ? (
         tasks
           .filter((task) => task.category === columnId)

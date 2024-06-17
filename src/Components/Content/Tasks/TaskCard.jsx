@@ -7,8 +7,7 @@ import { Link } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
 
 const TaskCard = ({ task, column }) => {
-  const { activeCard, setActiveCard, handleDeleteTask } =
-    useContext(DataContext);
+  const { setActiveCard, handleDeleteTask } = useContext(DataContext);
 
   return (
     <article
