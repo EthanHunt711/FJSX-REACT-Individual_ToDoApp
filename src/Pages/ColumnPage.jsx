@@ -12,10 +12,9 @@ const ColumnPage = () => {
   return (
     <>
       <div>
-        <p>{NAME}</p>
+        <h2>{NAME}</h2>
       </div>
       <ul className={styles.cardsList}>
-        <DropArea column={NAME} position={0} />
         {tasks && tasks.length > 0 ? (
           tasks
             .filter((task) => task.category === NAME)
