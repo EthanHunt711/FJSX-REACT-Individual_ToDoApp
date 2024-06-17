@@ -16,7 +16,7 @@ const TaskCard = ({ task, column }) => {
       onDragStart={() => setActiveCard(task.id)}
       onDragEnd={() => setActiveCard(null)}
     >
-      <Link to={`${column}/tasks/${task.id}`}>
+      <Link to={`/columns/${column}/tasks/${task.id}`}>
         <h4 className={styles.title}>{task.title}</h4>
       </Link>
       <section className={styles.detailsSectionUpp}>

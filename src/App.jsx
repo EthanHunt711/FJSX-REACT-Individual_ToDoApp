@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Content />} />
           <Route path="/columns/:NAME" element={<ColumnPage />} />
-          <Route path=":NAME/tasks/:ID" element={<TaskPage />} />
+          <Route path="/columns/:NAME/tasks/:ID" element={<TaskPage />} />
           <Route path="*" element={<MissingPage />} />
         </Routes>
       </DataProvider>

@@ -15,13 +15,16 @@
     padding-right: 30px;
     padding-top: 30px;
     max-width: 150px;
+    
 }
 .editButtons button{
     width: 100px;
     height: 50px;
+    cursor: pointer;
 }
 .editButtons a{
     max-width: 100px;
+    
 }
 .homeButton{
     width: 30px;
