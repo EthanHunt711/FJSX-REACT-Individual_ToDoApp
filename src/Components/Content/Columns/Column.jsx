@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import DataContext from "../../../Context/DataContext";
 import styles from "./column.module.css";
 import CardsList from "../Tasks/CardsList";
@@ -7,7 +7,7 @@ import AddNewTaskModal from "../../Modals/AddNewTaskModal";
 import { Link } from "react-router-dom";
 
 const Column = ({ column }) => {
-  const { modal, tasks, setActiveCard } = useContext(DataContext);
+  const { modal } = useContext(DataContext);
 
   return (
     <section className={styles.column}>

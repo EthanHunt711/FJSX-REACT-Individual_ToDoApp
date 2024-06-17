@@ -19,8 +19,12 @@
     border-radius: 5px;
 }
 
+.title a{
+    text-decoration: none;
+}
+
 .cardsContainer{
-    background: blue;
+    background: rgb(200, 200, 204, 0.4);
     width: 100%;
     height: 90%;
     border-radius: 5px;

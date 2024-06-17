@@ -1,9 +1,37 @@
 import { useContext, useState } from "react";
+import { useParams } from "react-router-dom";
 import DataContext from "../Context/DataContext";
 import styles from "./columnPage.module.css";
+import TaskCard from "../Components/Content/Tasks/TaskCard";
+import DropArea from "../Components/Content/Tasks/DropArea";
 
 const ColumnPage = () => {
-  return <div>ColumnPage</div>;
+  const { tasks } = useContext(DataContext);
+  const { NAME } = useParams();
+
+  return (
+    <>
+      <div>
+        <p>{NAME}</p>
+      </div>
+      <ul className={styles.cardsList}>
+        <DropArea column={NAME} position={0} />
+        {tasks && tasks.length > 0 ? (
+          tasks
+            .filter((task) => task.category === NAME)
+            .map((task) => (
+              <>
+                <DropArea column={NAME} position={task.id - 1} />
+                <TaskCard key={task.id} task={task} column={NAME} />
+                <DropArea column={NAME} position={task.id + 1} />
+              </>
+            ))
+        ) : (
+          <p className={styles.noTasksMessage}>Inga uppgifter att visa</p>
+        )}
+      </ul>
+    </>
+  );
 };
 
 export default ColumnPage;
