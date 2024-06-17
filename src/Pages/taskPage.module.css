@@ -7,6 +7,21 @@
 .editableContent{
     width: 100%;
 }
+
+.contentContainer,
+.contentContainerDate,
+.contentContainerStatus{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 50px;
+}
+
+.contentContainer{
+    margin-top: 30px;
+    height: 400px;
+}
+
 .editButtons{
     width: 100%;
     display: flex;

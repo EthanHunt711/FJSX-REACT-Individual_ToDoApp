@@ -3,6 +3,7 @@ import DataContext from "../../Context/DataContext";
 import styles from "./addNewTaskModal.module.css";
 import { format } from "date-fns";
 import Tags from "../Content/Tasks/Tags";
+import Calendar from "../Calendar";
 
 const AddNewTaskModal = () => {
   const { handleToggleModal, tasks, setTasks } = useContext(DataContext);
@@ -67,6 +68,9 @@ const AddNewTaskModal = () => {
               onChange={(e) => setNewTaskDescription(e.target.value)}
             />
           </div>
+          {/* <div className={styles.deadline}>
+            <Calendar id="newTaskDeadline" />
+          </div> */}
           <div className={styles.newTaskCategoryButtons}>
             <Tags setNewTaskCategory={setNewTaskCategory} />
           </div>

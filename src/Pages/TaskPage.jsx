@@ -4,6 +4,7 @@ import DataContext from "../Context/DataContext";
 import styles from "./taskPage.module.css";
 import { MdDeleteForever } from "react-icons/md";
 import { IoHome } from "react-icons/io5";
+import Calendar from "../Components/Calendar";
 
 const TaskPage = () => {
   const { tasks, setTasks, handleDeleteTask } = useContext(DataContext);
@@ -80,19 +81,27 @@ const TaskPage = () => {
           </div>
           <div
             data-name="createdDate"
-            className={styles.contentContainer}
+            className={styles.contentContainerDate}
             //contentEditable
             //onInput={handleEditTask}
           >
-            {editedTask.createdDate}
+            skapade: {editedTask.createdDate}
+          </div>
+          <div
+            data-name="dueDate"
+            className={styles.contentContainerDate}
+            //contentEditable
+            //onInput={handleEditTask}
+          >
+            deadline: {editedTask.dueDate}
           </div>
           <div
             data-name="status"
-            className={styles.contentContainer}
+            className={styles.contentContainerStatus}
             //contentEditable
             //onInput={handleEditTask}
           >
-            {editedTask.category}
+            status: {editedTask.category}
           </div>
         </div>
         <div className={styles.editButtons}>
