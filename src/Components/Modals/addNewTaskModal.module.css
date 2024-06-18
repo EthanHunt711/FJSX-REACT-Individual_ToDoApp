@@ -13,7 +13,7 @@
 .addNewTaskModal {
     z-index: 9;
     max-width: 350px;
-    height: 400px;
+    height: 430px;
     margin: 10px auto;
     display: flex;
     flex-direction: column;
@@ -94,3 +94,7 @@ textarea{
     height: 30px;
   }
 
+  .calendarDeadlineTaskModal {
+    width: 100%;
+    margin-bottom: 20px;
+  }

@@ -1,4 +1,4 @@
-import { useState, useContext, useRef } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import DataContext from "../../Context/DataContext";
 import styles from "./addNewTaskModal.module.css";
 import { format } from "date-fns";
@@ -10,9 +10,16 @@ const AddNewTaskModal = () => {
 
   const [newTaskTitle, setNewTaskTitle] = useState("");
   const [addedDate, setAddedDate] = useState(format(new Date(), "yyyy-MM-dd"));
-  const [dueDate, setDueDate] = useState("");
+  const [dueDate, setDueDate] = useState(null);
   const [newTaskDescription, setNewTaskDescription] = useState("");
   const [newTaskCategory, setNewTaskCategory] = useState("To Do");
+  // const [selectedDate, setSelectedDate] = useState(null);
+
+  useEffect(() => {
+    if (dueDate) {
+      setDueDate(format(dueDate, "yyyy-MM-dd"));
+    }
+  }, [dueDate]);
 
   const canSave = Boolean(newTaskTitle);
   const inputRef = useRef(null);
@@ -31,7 +38,6 @@ const AddNewTaskModal = () => {
     };
 
     setTasks((prev) => [...prev, task]);
-    console.log(tasks);
     handleToggleModal();
   };
 
@@ -68,9 +74,9 @@ const AddNewTaskModal = () => {
               onChange={(e) => setNewTaskDescription(e.target.value)}
             />
           </div>
-          {/* <div className={styles.deadline}>
-            <Calendar id="newTaskDeadline" />
-          </div> */}
+          <div className={styles.calendarDeadlineTaskModal}>
+            <Calendar selectedDate={dueDate} setSelectedDate={setDueDate} />
+          </div>
           <div className={styles.newTaskCategoryButtons}>
             <Tags setNewTaskCategory={setNewTaskCategory} />
           </div>
