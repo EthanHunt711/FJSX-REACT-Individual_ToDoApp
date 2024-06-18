@@ -28,6 +28,8 @@ export const DataProvider = ({ children }) => {
   //Card dragging
   const [activeCard, setActiveCard] = useState(null);
 
+  const [dueDate, setDueDate] = useState(null);
+
   //delete a task by id
   const handleDeleteTask = (id) => {
     const newTasksList = tasks.filter((task) => task.id != id);
@@ -73,6 +75,8 @@ export const DataProvider = ({ children }) => {
         activeCard,
         setActiveCard,
         handleDrop,
+        dueDate,
+        setDueDate,
       }}
     >
       {children}

@@ -6,11 +6,12 @@ import Tags from "../Content/Tasks/Tags";
 import Calendar from "../Calendar";
 
 const AddNewTaskModal = () => {
-  const { handleToggleModal, tasks, setTasks } = useContext(DataContext);
+  const { handleToggleModal, tasks, setTasks, dueDate, setDueDate } =
+    useContext(DataContext);
 
   const [newTaskTitle, setNewTaskTitle] = useState("");
   const [addedDate, setAddedDate] = useState(format(new Date(), "yyyy-MM-dd"));
-  const [dueDate, setDueDate] = useState(null);
+
   const [newTaskDescription, setNewTaskDescription] = useState("");
   const [newTaskCategory, setNewTaskCategory] = useState("To Do");
 

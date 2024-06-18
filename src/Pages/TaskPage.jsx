@@ -8,10 +8,14 @@ import Calendar from "../Components/Calendar";
 import TaskCardDueDate from "../Components/Content/Tasks/TaskCardDueDate";
 
 const TaskPage = () => {
-  const { tasks, setTasks, handleDeleteTask } = useContext(DataContext);
+  const { tasks, setTasks, handleDeleteTask, dueDate, setDueDate } =
+    useContext(DataContext);
   const { ID } = useParams();
   const [post, setPost] = useState(tasks.find((el) => el.id == parseInt(ID)));
   const [editedTask, setEditedTask] = useState(post);
+  const [selectedDate, setSelectedDate] = useState(
+    post.dueDate ? new Date(post.dueDate) : null
+  );
 
   useEffect(() => {
     setEditedTask(post);
@@ -24,16 +28,19 @@ const TaskPage = () => {
   };
 
   const handleSaveTask = () => {
+    const updatedTask = {
+      ...editedTask,
+      dueDate: selectedDate ? selectedDate.toISOString().split("T")[0] : null,
+    };
     const updatedTasks = tasks.map((task) =>
       task.id === editedTask.id ? editedTask : task
     );
     setTasks(updatedTasks);
-    //history.pushState("/")
-    console.log(tasks);
   };
 
   const handleCancel = () => {
     setEditedTask(post);
+    setSelectedDate(post.dueDate ? new Date(post.dueDate) : null);
   };
 
   const handleChangeStatusToDoing = () => {
@@ -81,25 +88,26 @@ const TaskPage = () => {
             className={styles.contentContainer}
             contentEditable
             onInput={handleEditTask}
+            suppressContentEditableWarning={true}
           >
             {editedTask.description}
           </div>
-          <div
-            data-name="createdDate"
-            className={styles.contentContainerDate}
-            //contentEditable
-            //onInput={handleEditTask}
-          >
+          <div data-name="createdDate" className={styles.contentContainerDate}>
             skapade: {editedTask.createdDate}
           </div>
-          <div
-            data-name="dueDate"
-            className={styles.contentContainerDate}
-            //contentEditable
-            //onInput={handleEditTask}
-          >
-            deadline: {editedTask.dueDate}
-          </div>
+          {!editedTask.dueDate ? (
+            <Calendar selectedDate={dueDate} setSelectedDate={setDueDate} />
+          ) : (
+            <div
+              data-name="dueDate"
+              className={styles.contentContainerDate}
+              // contentEditable
+              // onInput={handleEditTask}
+            >
+              deadline: {editedTask.dueDate}
+            </div>
+          )}
+
           <div
             data-name="status"
             className={styles.contentContainerStatus}
@@ -176,25 +184,6 @@ const TaskPage = () => {
               Märkera som Doing
             </button>
           )}
-          {/* 
-          <button
-            type="button"
-            aria-label="Ändra läge"
-            onClick={handleChangeStatusToDoing}
-          >
-            {editedTask.category === "To Do"
-              ? "Märkera som Doing"
-              : "Märkera som Done"}
-          </button>
-          <button
-            type="button"
-            aria-label="Ändra läge"
-            onClick={handleChangeStatusToDone}
-          >
-            {editedTask.category === "Doing"
-              ? "Märkera som Done"
-              : "Märkera som To Do"}
-          </button> */}
           <button
             type="button"
             aria-label="Spara ändringar"
