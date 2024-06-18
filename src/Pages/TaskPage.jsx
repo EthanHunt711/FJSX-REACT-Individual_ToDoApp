@@ -5,6 +5,7 @@ import styles from "./taskPage.module.css";
 import { MdDeleteForever } from "react-icons/md";
 import { IoHome } from "react-icons/io5";
 import Calendar from "../Components/Calendar";
+import TaskCardDueDate from "../Components/Content/Tasks/TaskCardDueDate";
 
 const TaskPage = () => {
   const { tasks, setTasks, handleDeleteTask } = useContext(DataContext);
@@ -71,6 +72,10 @@ const TaskPage = () => {
           >
             {editedTask.title}
           </h2>
+          <TaskCardDueDate
+            createdDate={editedTask.createdDate}
+            dueDate={editedTask.dueDate}
+          />
           <div
             data-name="description"
             className={styles.contentContainer}

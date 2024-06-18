@@ -13,7 +13,6 @@ const AddNewTaskModal = () => {
   const [dueDate, setDueDate] = useState(null);
   const [newTaskDescription, setNewTaskDescription] = useState("");
   const [newTaskCategory, setNewTaskCategory] = useState("To Do");
-  // const [selectedDate, setSelectedDate] = useState(null);
 
   useEffect(() => {
     if (dueDate) {

@@ -5,6 +5,7 @@ import TaskPage from "../../../Pages/TaskPage";
 import TaskCardStatus from "./TaskCardStatus";
 import { Link } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
+import TaskCardDueDate from "./TaskCardDueDate";
 
 const TaskCard = ({ task, column }) => {
   const { setActiveCard, handleDeleteTask } = useContext(DataContext);
@@ -26,6 +27,10 @@ const TaskCard = ({ task, column }) => {
             <div className={styles.descriptionDate}>
               <p>skapade: {task.createdDate}</p>
               <TaskCardStatus taskStatus={task.category} />
+              <TaskCardDueDate
+                createdDate={task.createdDate}
+                dueDate={task.dueDate}
+              />
             </div>
             <MdDeleteForever
               className={styles.deleteButton}
