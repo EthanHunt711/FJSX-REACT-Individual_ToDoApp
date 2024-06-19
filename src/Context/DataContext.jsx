@@ -1,5 +1,4 @@
-import React, { Children } from "react";
-import { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 const DataContext = createContext({});
 
@@ -8,16 +7,7 @@ export const DataProvider = ({ children }) => {
   const columnsList = ["To Do", "Doing", "Done"];
   // useState for setting the initial columns
   const [columns, setColumns] = useState(columnsList || []);
-  // retrieve all tasks if any or empty array
-  const initialState = columns.map((column, index) => {
-    const initialList = [];
-    const columnCategory = {
-      id: index,
-      name: column,
-      tasks: [],
-    };
-    initialList.push(columnCategory);
-  });
+
   const [tasks, setTasks] = useState(() => {
     const savedTasks = localStorage.getItem("allTasks");
     return savedTasks ? JSON.parse(savedTasks) : [];

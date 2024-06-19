@@ -3,7 +3,7 @@ import { useContext } from "react";
 import styles from "./tags.module.css";
 
 const Tags = ({ setNewTaskCategory }) => {
-  const { columns } = useContext(DataContext); // Ensure the correct key is used here
+  const { columns } = useContext(DataContext);
 
   const colors = ["#dc3545", "#007bff", "#28a745"];
   const handlTaskCategory = (e, category) => {

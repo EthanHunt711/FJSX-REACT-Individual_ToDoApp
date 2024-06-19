@@ -3,7 +3,7 @@ import DataContext from "../../Context/DataContext";
 import styles from "./addNewTaskModal.module.css";
 import { format } from "date-fns";
 import Tags from "../Content/Tasks/Tags";
-import Calendar from "../Calendar";
+import Calendar from "../Content/Calendar";
 
 const AddNewTaskModal = () => {
   const { handleToggleModal, tasks, setTasks, dueDate, setDueDate } =

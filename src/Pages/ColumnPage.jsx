@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import DataContext from "../Context/DataContext";
 import styles from "./columnPage.module.css";

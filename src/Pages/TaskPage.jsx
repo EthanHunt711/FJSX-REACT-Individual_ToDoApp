@@ -4,7 +4,7 @@ import DataContext from "../Context/DataContext";
 import styles from "./taskPage.module.css";
 import { MdDeleteForever } from "react-icons/md";
 import { IoHome } from "react-icons/io5";
-import Calendar from "../Components/Calendar";
+import Calendar from "../Components/Content/Calendar";
 import TaskCardDueDate from "../Components/Content/Tasks/TaskCardDueDate";
 
 const TaskPage = () => {

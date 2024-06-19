@@ -4,7 +4,7 @@ import styles from "./columnsList.module.css";
 import DataContext from "../../../Context/DataContext";
 
 const ColumnsList = () => {
-  const { columns, tasks, setActiveCard, handleDrop } = useContext(DataContext);
+  const { columns } = useContext(DataContext);
 
   return (
     <ul className={styles.columnsList}>

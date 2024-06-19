@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import DataContext from "../../../Context/DataContext";
 import styles from "./taskCard.module.css";
-import TaskPage from "../../../Pages/TaskPage";
 import TaskCardStatus from "./TaskCardStatus";
 import { Link } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
