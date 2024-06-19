@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import DataContext from "../../../Context/DataContext";
 import styles from "./cardsList.module.css";
-import TaskCard from "./TaskCard";
+import TaskCardThumbnail from "./TaskCardThumbnail";
 import DropArea from "./DropArea";
 
 const CardsList = ({ columnId, column }) => {
@@ -16,7 +16,7 @@ const CardsList = ({ columnId, column }) => {
           .map((task) => (
             <>
               <DropArea column={columnId} position={task.id - 1} />
-              <TaskCard key={task.id} task={task} column={column} />
+              <TaskCardThumbnail key={task.id} task={task} column={column} />
               <DropArea column={columnId} position={task.id + 1} />
             </>
           ))
